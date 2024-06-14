@@ -915,10 +915,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 90df6c71-4bc1-4ab0-bdb0-b08401105a84
+  cloudProjectId: ab7c9608-63e2-4f10-96f9-d0bd81558d66
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: HC__Shooter
+  projectName: HC_Shooter
   organizationId: myusufsari44
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
