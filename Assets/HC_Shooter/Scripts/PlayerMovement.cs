@@ -28,13 +28,16 @@ public class PlayerMovement : MonoBehaviour
         Application.targetFrameRate = 60;
 
         state = State.Idle;
-
-        StartRunning();
     }
 
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartRunning();
+        }
+
         ManageState();
     }
 
@@ -56,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartRunning()
     {
+        state = State.Run;
+        
         playerAnimator.PlayRunAnimator();
     }
 
