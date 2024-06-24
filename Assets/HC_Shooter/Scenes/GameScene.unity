@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: 1140799982}
   - component: {fileID: 1140799981}
   - component: {fileID: 1140799983}
+  - component: {fileID: 1140799984}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -748,6 +749,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8777576796795842365}
+--- !u!114 &1140799984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140799980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a45e49c7ba049a28ffc3093661e261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541379523
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +912,7 @@ GameObject:
   - component: {fileID: 1631781531}
   - component: {fileID: 1631781530}
   m_Layer: 0
-  m_Name: Spline
+  m_Name: PlayerSpline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
