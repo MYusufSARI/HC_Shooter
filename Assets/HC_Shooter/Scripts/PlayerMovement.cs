@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Idle,
         Run,
+        Warzone,
     };
 
     private State state;
@@ -52,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
             case State.Run:
                 Move();
                 break;
+
+            case State.Warzone:
+                break;
         }
     }
 
@@ -68,5 +72,11 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+    }
+
+
+    public void EnteredWarzoneCallback(Warzone warzone)
+    {
+        Debug.Log("Entered Warzone");
     }
 }
