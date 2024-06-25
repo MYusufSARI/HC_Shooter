@@ -25,8 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimator playerAnimator;
 
     [Header(" Spline Settings ")]
-    [SerializeField]
-    private float splinePercent;
+    private float warzoneTimer;
 
 
     private Warzone currentWarzone;
@@ -72,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private void StartRunning()
     {
         state = State.Run;
-        
+
         playerAnimator.PlayRunAnimator();
     }
 
@@ -91,12 +90,19 @@ public class PlayerMovement : MonoBehaviour
         state = State.Warzone;
         currentWarzone = warzone;
 
+        warzoneTimer = 0;
+
         Debug.Log("Entered Warzone !");
     }
 
 
     private void ManageWarzoneState()
     {
-        transform.position =  currentWarzone.GetPlaySpline().EvaluatePosition(splinePercent);
+        warzoneTimer += Time.deltaTime;
+
+        float timeDuringSpline = 2f;
+        float splinePercent = warzoneTimer / timeDuringSpline;
+
+        transform.position = currentWarzone.GetPlayerSpline().EvaluatePosition(splinePercent);
     }
 }

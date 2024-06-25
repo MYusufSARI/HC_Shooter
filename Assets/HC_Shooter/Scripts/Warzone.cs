@@ -12,7 +12,7 @@ public class Warzone : MonoBehaviour
 
 
 
-    public Spline GetPlaySpline()
+    public Spline GetPlayerSpline()
     {
         return playerSpline.Spline;
     }
