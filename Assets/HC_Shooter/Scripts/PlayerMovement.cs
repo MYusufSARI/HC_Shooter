@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField]
     private PlayerAnimator playerAnimator;
+
+    [Header(" Spline Settings ")]
+    [SerializeField]
+    private float splinePercent;
 
 
     private Warzone currentWarzone;
@@ -57,10 +63,10 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case State.Warzone:
+                ManageWarzoneState();
                 break;
         }
     }
-
 
 
     private void StartRunning()
@@ -82,9 +88,15 @@ public class PlayerMovement : MonoBehaviour
         if (currentWarzone != null)
             return;
 
+        state = State.Warzone;
         currentWarzone = warzone;
 
-
         Debug.Log("Entered Warzone !");
+    }
+
+
+    private void ManageWarzoneState()
+    {
+        transform.position =  currentWarzone.GetPlaySpline().EvaluatePosition(splinePercent);
     }
 }
