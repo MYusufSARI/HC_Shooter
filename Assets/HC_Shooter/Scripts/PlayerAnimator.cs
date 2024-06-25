@@ -21,13 +21,6 @@ public class PlayerAnimator : MonoBehaviour
 
     public void Play(string animationName)
     {
-        animator.Play(animationName);
-    }
-
-
-    public void Play(string animationName, float animatorSpeed)
-    {
-        animator.speed = animatorSpeed;
-        Play(animationName);
+       animator.Play(animationName);
     }
 }

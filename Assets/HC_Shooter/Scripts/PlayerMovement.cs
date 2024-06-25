@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         warzoneTimer = 0;
 
-        playerAnimator.Play(currentWarzone.GetAnimationToPlay(), currentWarzone.GetAnimatorSpeed());
+        playerAnimator.Play(currentWarzone.GetAnimationToPlay());
 
         Debug.Log("Entered Warzone !");
     }
@@ -106,5 +106,20 @@ public class PlayerMovement : MonoBehaviour
 
         float splinePercent = warzoneTimer / currentWarzone.GetDuration();
         transform.position = currentWarzone.GetPlayerSpline().EvaluatePosition(splinePercent);
+
+        if (splinePercent >= 1)
+        {
+            ExitWarzone();
+        }
+    }
+
+
+    private void ExitWarzone()
+    {
+        currentWarzone = null;
+
+        state = State.Run;
+        playerAnimator.Play("Run");
+        
     }
 }

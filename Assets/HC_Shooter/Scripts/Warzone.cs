@@ -15,9 +15,6 @@ public class Warzone : MonoBehaviour
     private float duration;
 
     [SerializeField]
-    private float animatorSpeed;
-
-    [SerializeField]
     private string animationToPlay;
 
 
@@ -34,13 +31,6 @@ public class Warzone : MonoBehaviour
     {
         return duration;
     }
-
-
-    public float GetAnimatorSpeed()
-    {
-        return GetAnimatorSpeed();
-    }
-
 
     public string GetAnimationToPlay()
     {
