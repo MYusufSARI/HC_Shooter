@@ -170,7 +170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpline: {fileID: 1631781530}
   duration: 1
-  animatorSpeed: 1
   animationToPlay: Flip
 --- !u!1 &300761956
 GameObject:
@@ -769,6 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  slowMoScale: 0.3
   playerAnimator: {fileID: 1140799983}
 --- !u!4 &1140799982
 Transform:

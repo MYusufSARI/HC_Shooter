@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    [SerializeField]
+    private float slowMoScale;
+
 
     [Header(" Elements ")]
     [SerializeField]
@@ -96,6 +99,8 @@ public class PlayerMovement : MonoBehaviour
 
         playerAnimator.Play(currentWarzone.GetAnimationToPlay());
 
+        Time.timeScale = slowMoScale;
+
         Debug.Log("Entered Warzone !");
     }
 
@@ -120,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
 
         state = State.Run;
         playerAnimator.Play("Run");
+
+        Time.timeScale = 1;
         
     }
 }
