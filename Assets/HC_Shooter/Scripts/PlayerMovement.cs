@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimator playerAnimator;
 
 
+    private Warzone currentWarzone;
+
 
     private void Start()
     {
@@ -77,6 +79,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void EnteredWarzoneCallback(Warzone warzone)
     {
-        Debug.Log("Entered Warzone");
+        if (currentWarzone != null)
+            return;
+
+        currentWarzone = warzone;
+
+
+        Debug.Log("Entered Warzone !");
     }
 }
