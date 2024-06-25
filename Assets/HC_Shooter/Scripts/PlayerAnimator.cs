@@ -11,8 +11,23 @@ public class PlayerAnimator : MonoBehaviour
     private const string RUN = "Run";
 
 
+
+
     public void PlayRunAnimator()
     {
-        animator.Play(RUN);
+        Play(RUN);
+    }
+
+
+    public void Play(string animationName)
+    {
+        animator.Play(animationName);
+    }
+
+
+    public void Play(string animationName, float animatorSpeed)
+    {
+        animator.speed = animatorSpeed;
+        Play(animationName);
     }
 }

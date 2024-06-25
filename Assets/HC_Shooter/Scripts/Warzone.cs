@@ -10,10 +10,40 @@ public class Warzone : MonoBehaviour
     private SplineContainer playerSpline;
 
 
+    [Header(" Settings ")]
+    [SerializeField]
+    private float duration;
+
+    [SerializeField]
+    private float animatorSpeed;
+
+    [SerializeField]
+    private string animationToPlay;
+
+
+
 
 
     public Spline GetPlayerSpline()
     {
         return playerSpline.Spline;
+    }
+
+
+    public float GetDuration()
+    {
+        return duration;
+    }
+
+
+    public float GetAnimatorSpeed()
+    {
+        return GetAnimatorSpeed();
+    }
+
+
+    public string GetAnimationToPlay()
+    {
+        return animationToPlay;
     }
 }

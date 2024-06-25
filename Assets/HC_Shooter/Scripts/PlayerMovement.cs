@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private Warzone currentWarzone;
 
 
+
+
     private void Start()
     {
         Application.targetFrameRate = 60;
@@ -92,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
 
         warzoneTimer = 0;
 
+        playerAnimator.Play(currentWarzone.GetAnimationToPlay(), currentWarzone.GetAnimatorSpeed());
+
         Debug.Log("Entered Warzone !");
     }
 
@@ -100,9 +104,7 @@ public class PlayerMovement : MonoBehaviour
     {
         warzoneTimer += Time.deltaTime;
 
-        float timeDuringSpline = 2f;
-        float splinePercent = warzoneTimer / timeDuringSpline;
-
+        float splinePercent = warzoneTimer / currentWarzone.GetDuration();
         transform.position = currentWarzone.GetPlayerSpline().EvaluatePosition(splinePercent);
     }
 }
