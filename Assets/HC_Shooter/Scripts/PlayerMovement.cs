@@ -21,21 +21,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerIK playerIK;
 
 
-
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float slowMoScale;
-
 
 
     [Header(" Spline Settings ")]
     private float warzoneTimer;
 
 
-
     [Header(" Actions ")]
     public static Action onEnteredWarzone;
-
+    public static Action onExitedWarzone;
 
 
     private Warzone currentWarzone;
@@ -142,6 +139,9 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = 1;
 
         playerIK.DisableIK();
+
+
+        onExitedWarzone?.Invoke();
         
     }
 }

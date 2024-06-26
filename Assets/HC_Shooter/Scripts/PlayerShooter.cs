@@ -14,8 +14,10 @@ public class PlayerShooter : MonoBehaviour
     private void Awake()
     {
         PlayerMovement.onEnteredWarzone += EnteredWarzoneCallback;
+        PlayerMovement.onExitedWarzone += ExitedWarzoneCallback;
     }
 
+    
 
     private void OnDestroy()
     {
@@ -32,6 +34,12 @@ public class PlayerShooter : MonoBehaviour
     private void EnteredWarzoneCallback()
     {
         SetShootingLineVisibility(true);
+    }
+
+
+    private void ExitedWarzoneCallback()
+    {
+        SetShootingLineVisibility(false);
     }
 
 
