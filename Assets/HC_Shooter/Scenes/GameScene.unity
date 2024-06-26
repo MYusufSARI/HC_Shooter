@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36af51a6c8b664960b4f4402afe4da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6814770072722806074, guid: 8236030c38b324b479dda852edf69891,
+  bulletPrefab: {fileID: 3711439150142731623, guid: 8236030c38b324b479dda852edf69891,
     type: 3}
   shootingLine: {fileID: 2084564397}
   bulletSpawnPosition: {fileID: 2032270669}
