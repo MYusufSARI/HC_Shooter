@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField]
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
     private const string RUN = "Run";
 
