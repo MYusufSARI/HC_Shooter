@@ -27,9 +27,22 @@ public class PlayerIK : MonoBehaviour
     }
 
 
-    public void ConfigureIK(Transform ikTarger)
+    public void ConfigureIK(Transform ikTarget)
     {
         rigBuilder.enabled = true;
+
+        foreach (TwoBoneIKConstraint twoBoneIKConstraint in twoBoneIKConstraints)
+        {
+            twoBoneIKConstraint.data.target = ikTarget;
+        }
+
+        foreach (MultiAimConstraint multiAimConstraint in multiAimConstraints)
+        {
+            WeightedTransformArray weightedTransforms = new WeightedTransformArray();
+            weightedTransforms.Add(new WeightedTransform(ikTarget, 1));
+
+            multiAimConstraint.data.sourceObjects = weightedTransforms;
+        }
     }
 
     public void DisableIK()
