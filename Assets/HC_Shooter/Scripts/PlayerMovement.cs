@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerAnimator playerAnimator;
 
+    [SerializeField]
+    private PlayerIK playerIk;
+
+
     [Header(" Spline Settings ")]
     private float warzoneTimer;
 
@@ -100,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.Play(currentWarzone.GetAnimationToPlay());
 
         Time.timeScale = slowMoScale;
+
+        playerIk.ConfigureIK();
 
         Debug.Log("Entered Warzone !");
     }
