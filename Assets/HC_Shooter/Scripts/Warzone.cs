@@ -23,6 +23,12 @@ public class Warzone : MonoBehaviour
         ikSplineAnimate.Duration = duration;
     }
 
+
+    public void StartAnimatingIKTarget()
+    {
+        ikSplineAnimate.Play();
+    }
+
     public Spline GetPlayerSpline()
     {
         return playerSpline.Spline;

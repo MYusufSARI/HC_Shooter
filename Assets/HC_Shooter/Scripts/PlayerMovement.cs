@@ -95,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
         state = State.Warzone;
         currentWarzone = warzone;
 
+        currentWarzone.StartAnimatingIKTarget();
+
         warzoneTimer = 0;
 
         playerAnimator.Play(currentWarzone.GetAnimationToPlay());
