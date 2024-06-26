@@ -17,11 +17,12 @@ public class PlayerShooter : MonoBehaviour
         PlayerMovement.onExitedWarzone += ExitedWarzoneCallback;
     }
 
-    
+
 
     private void OnDestroy()
     {
         PlayerMovement.onEnteredWarzone -= EnteredWarzoneCallback;
+        PlayerMovement.onExitedWarzone -= ExitedWarzoneCallback;
     }
 
 
