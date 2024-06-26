@@ -16,24 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private State state;
 
     [Header("Settings")]
-    [SerializeField]
-    private float moveSpeed;
-
-    [SerializeField]
-    private float slowMoScale;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float slowMoScale;
 
 
     [Header(" Elements ")]
-    [SerializeField]
-    private PlayerAnimator playerAnimator;
-
-    [SerializeField]
-    private PlayerIK playerIK;
+    [SerializeField] private PlayerAnimator playerAnimator;
+    [SerializeField] private PlayerIK playerIK;
 
 
     [Header(" Spline Settings ")]
     private float warzoneTimer;
-
 
     private Warzone currentWarzone;
 
