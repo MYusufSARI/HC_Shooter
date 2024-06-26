@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimator playerAnimator;
 
     [SerializeField]
-    private PlayerIK playerIk;
+    private PlayerIK playerIK;
 
 
     [Header(" Spline Settings ")]
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         Time.timeScale = slowMoScale;
 
-        playerIk.ConfigureIK();
+        playerIK.ConfigureIK();
 
         Debug.Log("Entered Warzone !");
     }
@@ -133,6 +133,8 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator.Play("Run");
 
         Time.timeScale = 1;
+
+        playerIK.DisableIK();
         
     }
 }

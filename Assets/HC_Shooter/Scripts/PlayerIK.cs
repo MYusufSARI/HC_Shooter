@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,5 +26,10 @@ public class PlayerIK : MonoBehaviour
     public void ConfigureIK()
     {
         rigBuilder.enabled = true;
+    }
+
+    public void DisableIK()
+    {
+        rigBuilder.enabled = false;
     }
 }
