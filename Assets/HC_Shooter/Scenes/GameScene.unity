@@ -255,6 +255,7 @@ Transform:
   m_Children:
   - {fileID: 1631781531}
   - {fileID: 571143537}
+  - {fileID: 933479066}
   m_Father: {fileID: 1541379524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &182100251
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpline: {fileID: 1631781530}
+  ikTarget: {fileID: 933479066}
   duration: 1
   animationToPlay: Flip
 --- !u!1 &300761956
@@ -692,12 +694,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933479063}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.67, y: -0.51, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.924294, y: -1.9829226, z: 5.2171435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 182100250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968680314
 GameObject:
@@ -3457,4 +3459,3 @@ SceneRoots:
   - {fileID: 1140234905}
   - {fileID: 327290111}
   - {fileID: 1541379524}
-  - {fileID: 933479066}

@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         Time.timeScale = slowMoScale;
 
-        playerIK.ConfigureIK();
+        playerIK.ConfigureIK(currentWarzone.GetIKTarget());
 
         Debug.Log("Entered Warzone !");
     }
