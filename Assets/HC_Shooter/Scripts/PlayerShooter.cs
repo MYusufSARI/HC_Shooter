@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerShooter : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private GameObject shootingLine;
     [SerializeField] private Transform bulletSpawnPosition;
     [SerializeField] private Transform bulletsParent;
@@ -59,9 +59,9 @@ public class PlayerShooter : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity, bulletsParent);
+        Bullet bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity, bulletsParent);
 
-        bulletInstance.GetComponent<Bullet>().Configure(Vector3.down * bulletSpeed);
+        bulletInstance.Configure(bulletSpawnPosition.right * bulletSpeed);
     }
 
 
