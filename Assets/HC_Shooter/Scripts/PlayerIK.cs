@@ -7,8 +7,12 @@ using UnityEngine.Animations.Rigging;
 public class PlayerIK : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField]
-    private RigBuilder rigBuilder;
+    [SerializeField] private RigBuilder rigBuilder;
+
+
+    [Header(" Constraints ")]
+    [SerializeField] private TwoBoneIKConstraint[] twoBoneIKConstraints;
+    [SerializeField] private MultiAimConstraint[] multiAimConstraints;
 
 
     void Start()
