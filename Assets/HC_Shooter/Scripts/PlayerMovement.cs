@@ -21,15 +21,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerIK playerIK;
 
 
+
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float slowMoScale;
 
 
 
-
     [Header(" Spline Settings ")]
     private float warzoneTimer;
+
+
+
+    [Header(" Actions ")]
+    public static Action onEnteredWarzone;
+
+
 
     private Warzone currentWarzone;
 
@@ -104,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = slowMoScale;
 
         playerIK.ConfigureIK(currentWarzone.GetIKTarget());
+
+        onEnteredWarzone?.Invoke();
 
         Debug.Log("Entered Warzone !");
     }
