@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class Warzone : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField]
     private SplineContainer playerSpline;
+
+    [SerializeField]
+    private Transform ikTarget;
 
 
     [Header(" Settings ")]
@@ -35,5 +39,10 @@ public class Warzone : MonoBehaviour
     public string GetAnimationToPlay()
     {
         return animationToPlay;
+    }
+
+    public Transform GetIKTarget()
+    {
+        return ikTarget;
     }
 }

@@ -23,7 +23,7 @@ public class PlayerIK : MonoBehaviour
     }
 
 
-    public void ConfigureIK()
+    public void ConfigureIK(Transform ikTarger)
     {
         rigBuilder.enabled = true;
     }
