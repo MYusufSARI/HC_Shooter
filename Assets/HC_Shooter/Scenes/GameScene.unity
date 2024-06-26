@@ -990,10 +990,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabd1d42db924d7d97443f6bfd28454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  slowMoScale: 0.3
   playerAnimator: {fileID: 1140799983}
   playerIK: {fileID: 1140799985}
+  moveSpeed: 5
+  slowMoScale: 0.3
 --- !u!4 &1140799982
 Transform:
   m_ObjectHideFlags: 0
@@ -1049,6 +1049,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigBuilder: {fileID: 8777576796795842366}
+  twoBoneIKConstraints:
+  - {fileID: 1180229314}
+  - {fileID: 1956523548}
+  multiAimConstraints:
+  - {fileID: 1770237671}
+  - {fileID: 2046691466}
+  - {fileID: 70087506}
 --- !u!1 &1180229312
 GameObject:
   m_ObjectHideFlags: 0

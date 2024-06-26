@@ -15,14 +15,17 @@ public class PlayerMovement : MonoBehaviour
 
     private State state;
 
+
+    [Header(" Elements ")]
+    [SerializeField] private PlayerAnimator playerAnimator;
+    [SerializeField] private PlayerIK playerIK;
+
+
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float slowMoScale;
 
 
-    [Header(" Elements ")]
-    [SerializeField] private PlayerAnimator playerAnimator;
-    [SerializeField] private PlayerIK playerIK;
 
 
     [Header(" Spline Settings ")]
