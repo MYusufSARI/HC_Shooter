@@ -43,6 +43,8 @@ public class PlayerIK : MonoBehaviour
 
             multiAimConstraint.data.sourceObjects = weightedTransforms;
         }
+
+        rigBuilder.Build();
     }
 
     public void DisableIK()

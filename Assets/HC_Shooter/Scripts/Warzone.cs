@@ -9,6 +9,7 @@ public class Warzone : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private SplineContainer playerSpline;
     [SerializeField] private Transform ikTarget;
+    [SerializeField] private SplineAnimate ikSplineAnimate;
 
 
     [Header(" Settings ")]
@@ -17,6 +18,10 @@ public class Warzone : MonoBehaviour
 
 
 
+    private void Start()
+    {
+        ikSplineAnimate.Duration = duration;
+    }
 
     public Spline GetPlayerSpline()
     {
