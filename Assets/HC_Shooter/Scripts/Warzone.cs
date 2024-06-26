@@ -7,20 +7,13 @@ using UnityEngine.Splines;
 public class Warzone : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField]
-    private SplineContainer playerSpline;
-
-    [SerializeField]
-    private Transform ikTarget;
+    [SerializeField] private SplineContainer playerSpline;
+    [SerializeField] private Transform ikTarget;
 
 
     [Header(" Settings ")]
-    [SerializeField]
-    private float duration;
-
-    [SerializeField]
-    private string animationToPlay;
-
+    [SerializeField] private float duration;
+    [SerializeField] private string animationToPlay;
 
 
 

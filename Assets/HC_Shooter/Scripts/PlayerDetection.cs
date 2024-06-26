@@ -6,10 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerDetection : MonoBehaviour
 {
-
     [Header(" Settings ")]
-    [SerializeField]
-    private float detectionRadius;
+    [SerializeField] private float detectionRadius;
 
     private PlayerMovement playerMovement;
 
