@@ -57,7 +57,7 @@ public class PlayerShooter : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity);
+        GameObject bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity);
     }
 
 
