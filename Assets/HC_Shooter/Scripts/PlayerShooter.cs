@@ -6,7 +6,13 @@ using UnityEngine;
 public class PlayerShooter : MonoBehaviour
 {
     [Header(" Elements ")]
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject shootingLine;
+    [SerializeField] private Transform bulletSpawnPosition;
+
+
+    [Header(" Settings ")]
+    private bool canShoot;
 
 
 
@@ -16,7 +22,6 @@ public class PlayerShooter : MonoBehaviour
         PlayerMovement.onEnteredWarzone += EnteredWarzoneCallback;
         PlayerMovement.onExitedWarzone += ExitedWarzoneCallback;
     }
-
 
 
     private void OnDestroy()
@@ -32,15 +37,41 @@ public class PlayerShooter : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if (canShoot)
+        {
+            ManageShooting();
+        }
+    }
+
+
+    private void ManageShooting()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
+
+
+    private void Shoot()
+    {
+        Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity);
+    }
+
+
     private void EnteredWarzoneCallback()
     {
         SetShootingLineVisibility(true);
+        canShoot = true;
     }
 
 
     private void ExitedWarzoneCallback()
     {
         SetShootingLineVisibility(false);
+        canShoot = false;
     }
 
 
