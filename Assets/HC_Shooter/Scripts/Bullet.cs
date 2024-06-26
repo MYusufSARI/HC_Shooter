@@ -19,4 +19,10 @@ public class Bullet : MonoBehaviour
     {
         transform.position += velocity * Time.deltaTime;
     }
+
+
+    public void Configure(Vector3 velocity)
+    {
+        this.velocity = velocity;
+    }
 }

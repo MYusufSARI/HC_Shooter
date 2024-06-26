@@ -9,9 +9,11 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject shootingLine;
     [SerializeField] private Transform bulletSpawnPosition;
+    [SerializeField] private Transform bulletsParent;
 
 
     [Header(" Settings ")]
+    [SerializeField] private float bulletSpeed;
     private bool canShoot;
 
 
@@ -57,7 +59,9 @@ public class PlayerShooter : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity);
+        GameObject bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity, bulletsParent);
+
+        bulletInstance.GetComponent<Bullet>().Configure(Vector3.down * bulletSpeed);
     }
 
 
