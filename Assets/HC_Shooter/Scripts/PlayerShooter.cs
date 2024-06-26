@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header(" Elements ")]
+    [SerializeField] private GameObject shootingLine;
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void SetShootingLineVisibility(bool visibility)
     {
-        
+
     }
 }
