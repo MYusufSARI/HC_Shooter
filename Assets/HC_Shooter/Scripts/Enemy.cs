@@ -8,33 +8,33 @@ public class Enemy : MonoBehaviour
     private enum State
     {
         Alive,
-        Dead,
+        Dead
     }
 
     private State state;
 
     [Header(" Elements ")]
     [SerializeField] private CharacterRagdoll characterRagdoll;
+    [SerializeField] private CharacterIK characterIK;
+    private Transform playerTransform;
 
 
 
-    private void Start()
+    void Start()
     {
         state = State.Alive;
+
+        playerTransform = FindObjectOfType<PlayerMovement>().transform;
+        characterIK.ConfigureIK(playerTransform);
     }
 
 
     public void TakeDamage()
     {
         if (state == State.Dead)
-        {
             return;
-        }
 
-        else
-        {
-            Die();
-        }
+        Die();
     }
 
 

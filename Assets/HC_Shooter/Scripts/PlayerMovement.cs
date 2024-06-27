@@ -13,17 +13,19 @@ public class PlayerMovement : MonoBehaviour
         Warzone,
     };
 
-    private State state;
-
 
     [Header(" Elements ")]
     [SerializeField] private PlayerAnimator playerAnimator;
-    [SerializeField] private PlayerIK playerIK;
+    [SerializeField] private CharacterIK playerIK;
 
 
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float slowMoScale;
+
+
+    private State state;
+    private Warzone currentWarzone;
 
 
     [Header(" Spline Settings ")]
@@ -33,9 +35,6 @@ public class PlayerMovement : MonoBehaviour
     [Header(" Actions ")]
     public static Action onEnteredWarzone;
     public static Action onExitedWarzone;
-
-
-    private Warzone currentWarzone;
 
 
 
