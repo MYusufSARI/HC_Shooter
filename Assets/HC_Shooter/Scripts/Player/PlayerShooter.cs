@@ -23,6 +23,7 @@ public class PlayerShooter : MonoBehaviour
     {
         PlayerMovement.onEnteredWarzone += EnteredWarzoneCallback;
         PlayerMovement.onExitedWarzone += ExitedWarzoneCallback;
+        PlayerMovement.onDied += DiedCallback;
     }
 
 
@@ -30,6 +31,7 @@ public class PlayerShooter : MonoBehaviour
     {
         PlayerMovement.onEnteredWarzone -= EnteredWarzoneCallback;
         PlayerMovement.onExitedWarzone -= ExitedWarzoneCallback;
+        PlayerMovement.onDied -= DiedCallback;
     }
 
 
@@ -85,5 +87,11 @@ public class PlayerShooter : MonoBehaviour
     private void SetShootingLineVisibility(bool visibility)
     {
         shootingLine.SetActive(visibility);
+    }
+
+
+    private void DiedCallback()
+    {
+        SetShootingLineVisibility(false);
     }
 }

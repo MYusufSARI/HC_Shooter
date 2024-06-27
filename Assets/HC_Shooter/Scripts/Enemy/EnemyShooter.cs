@@ -11,12 +11,22 @@ public class EnemyShooter : MonoBehaviour
 
     [Header(" Settings ")]
     [SerializeField] private float bulletSpeed;
+    private bool hasShot;
 
 
 
+    public void TryShooing()
+    {
+        if (hasShot)
+            return;
+
+        hasShot = true;
+
+        Invoke("Shoot", 0.5f);
+    }
 
 
-    public void Shoot()
+    private void Shoot()
     {
         Vector3 velocity = bulletSpeed * bulletSpawnPoint.right;
 

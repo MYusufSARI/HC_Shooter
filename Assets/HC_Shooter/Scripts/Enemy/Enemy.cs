@@ -49,6 +49,9 @@ public class Enemy : MonoBehaviour
 
     public void ShootAtPlayer()
     {
-        enemyShooter.Shoot();
+        if (state == State.Dead)
+            return;
+
+        enemyShooter.TryShooing();
     }
 }

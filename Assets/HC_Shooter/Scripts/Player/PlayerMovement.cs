@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
         Idle,
         Run,
         Warzone,
+        Dead
     };
 
 
     [Header(" Elements ")]
     [SerializeField] private PlayerAnimator playerAnimator;
     [SerializeField] private CharacterIK playerIK;
+    [SerializeField] private CharacterRagdoll characterRagdoll;
 
 
     [Header("Settings")]
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [Header(" Actions ")]
     public static Action onEnteredWarzone;
     public static Action onExitedWarzone;
+    public static Action onDied;
 
 
 
@@ -160,6 +163,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage()
     {
-        Debug.Log("Ohhhhh, I got shooted!");
+        state = State.Dead;
+
+        characterRagdoll.Ragdollify();
+
+        int initialValueOfFixedTimeScale = 50;
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = 1f / initialValueOfFixedTimeScale;
+
+        onDied?.Invoke();
     }
 }
