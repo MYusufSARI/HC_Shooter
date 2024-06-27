@@ -59,9 +59,12 @@ public class PlayerShooter : MonoBehaviour
 
     private void Shoot()
     {
+        Vector3 direction = bulletSpawnPosition.right;
+        direction.z = 0;
+
         Bullet bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity, bulletsParent);
 
-        bulletInstance.Configure(bulletSpawnPosition.right * bulletSpeed);
+        bulletInstance.Configure(direction * bulletSpeed);
     }
 
 
