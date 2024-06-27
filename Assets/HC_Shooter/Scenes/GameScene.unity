@@ -438,7 +438,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35494035
   m_Height: 1.5245794
@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1879aa4d1be7c4beaba021e76a545730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterRagdoll: {fileID: 148261822}
 --- !u!114 &148261822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +483,7 @@ MonoBehaviour:
   - {fileID: 1841900165}
   - {fileID: 76977678}
   - {fileID: 158039309}
+  ragdollForce: 5000
 --- !u!1 &158039307
 GameObject:
   m_ObjectHideFlags: 0

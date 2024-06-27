@@ -8,4 +8,29 @@ public class CharacterRagdoll : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Collider mainCollider;
     [SerializeField] private Rigidbody[] rigidbodies;
+
+    [Header(" Settings ")]
+    [SerializeField] private float ragdollForce;
+
+    private void Start()
+    {
+        foreach (Rigidbody rig in rigidbodies)
+        {
+            rig.isKinematic = true;
+        }
+    }
+
+
+    public void Ragdollify()
+    {
+        foreach (Rigidbody rig in rigidbodies)
+        {
+            rig.isKinematic = false;
+
+            rig.AddForce((Vector3.up + Random.insideUnitSphere) * ragdollForce);
+        }
+
+        animator.enabled = false;
+        mainCollider.enabled = false;
+    }
 }

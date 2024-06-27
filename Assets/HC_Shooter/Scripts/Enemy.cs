@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
 
     private State state;
 
+    [Header(" Elements ")]
+    [SerializeField] private CharacterRagdoll characterRagdoll;
+
 
 
     private void Start()
@@ -38,5 +41,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         state = State.Dead;
+
+        characterRagdoll.Ragdollify();
     }
 }
