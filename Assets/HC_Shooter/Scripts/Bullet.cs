@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
 
         foreach (Collider enemyCollider in detectedEnemies)
         {
-            Destroy(enemyCollider.gameObject);
+            enemyCollider.GetComponent<Enemy>().TakeDamage();
         }
     }
 }
