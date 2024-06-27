@@ -11,6 +11,7 @@ public class PlayerEnemyTrigger : MonoBehaviour
 
     [Header(" Settings ")]
     [SerializeField] private LayerMask enemiesMask;
+    [SerializeField] private List<Enemy> currentEnemies = new List<Enemy>();
     private bool canCheckForShootingEnemies;
 
 
@@ -60,7 +61,46 @@ public class PlayerEnemyTrigger : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
-            Debug.Log(hits[i].collider.name);
+            Enemy currentEnemy = hits[i].collider.GetComponent<Enemy>();
+
+            if (!currentEnemies.Contains(currentEnemy))
+            {
+                currentEnemies.Add(currentEnemy);
+            }
         }
+
+        // We have a list of current enemies, enemies we've detected
+        // For each current enemy in the list, check if we have a raycast hit for that enemy
+        // If that's not the case, it means that the enemy has exited the line of sight of the player!
+
+        List<Enemy> enemiesToRemove = new List<Enemy>();
+
+        foreach (Enemy enemy in currentEnemies)
+        {
+            bool enemyFound = false;
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].collider.GetComponent<Enemy>() == enemy)
+                {
+                    enemyFound = true;
+                    break;
+                }
+            }
+
+            if (!enemyFound)
+            {
+                enemy.ShootAtPlayer();
+                enemiesToRemove.Add(enemy);
+            }
+
+        }
+
+        // Remove processed enemies from the current enemies list !
+        foreach(Enemy enemy in enemiesToRemove)
+        {
+            currentEnemies.Remove(enemy);
+        }
+
     }
 }

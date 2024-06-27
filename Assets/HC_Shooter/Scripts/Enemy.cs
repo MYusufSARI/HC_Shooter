@@ -44,4 +44,9 @@ public class Enemy : MonoBehaviour
 
         characterRagdoll.Ragdollify();
     }
+
+    public void ShootAtPlayer()
+    {
+        Debug.Log("Shooting at Player");
+    }
 }
