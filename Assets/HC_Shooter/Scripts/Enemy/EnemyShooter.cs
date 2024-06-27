@@ -12,15 +12,16 @@ public class EnemyShooter : MonoBehaviour
     [Header(" Settings ")]
     [SerializeField] private float bulletSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+
+
+
+    public void Shoot()
     {
-        
+        Vector3 velocity = bulletSpeed * bulletSpawnPoint.right;
+
+        EnemyBullet bulletInstance = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity, bulletsParent);
+
+        bulletInstance.Configure(velocity);
     }
 }

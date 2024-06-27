@@ -14,9 +14,11 @@ public class Enemy : MonoBehaviour
     private State state;
 
     [Header(" Elements ")]
+    [SerializeField] private EnemyShooter enemyShooter;
     [SerializeField] private CharacterRagdoll characterRagdoll;
     [SerializeField] private CharacterIK characterIK;
-    private Transform playerTransform;
+    private PlayerMovement playerMovement;
+
 
 
 
@@ -24,8 +26,8 @@ public class Enemy : MonoBehaviour
     {
         state = State.Alive;
 
-        playerTransform = FindObjectOfType<PlayerMovement>().transform;
-        characterIK.ConfigureIK(playerTransform);
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        characterIK.ConfigureIK(playerMovement.GetEnemyTarget());
     }
 
 
@@ -47,6 +49,6 @@ public class Enemy : MonoBehaviour
 
     public void ShootAtPlayer()
     {
-        Debug.Log("Shooting at Player");
+        enemyShooter.Shoot();
     }
 }

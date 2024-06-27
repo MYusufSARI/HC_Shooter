@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float slowMoScale;
+    [SerializeField] private Transform enemyTarget;
 
 
     private State state;
@@ -148,5 +149,17 @@ public class PlayerMovement : MonoBehaviour
 
         onExitedWarzone?.Invoke();
         
+    }
+
+
+    public Transform GetEnemyTarget()
+    {
+        return enemyTarget;
+    } 
+
+
+    public void TakeDamage()
+    {
+        Debug.Log("Ohhhhh, I got shooted!");
     }
 }

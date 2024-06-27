@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header(" Settings ")]
+    [SerializeField] private LayerMask playerMask;
+    [SerializeField] private float detectionRadius;
+    private Vector3 velocity;
+
+
+
+    private void Update()
     {
-        
+        Move();
+        CheckForPlayer();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Move()
     {
-        
+        transform.position += velocity * Time.deltaTime;
+    }
+
+
+    public void Configure(Vector3 velocity)
+    {
+        this.velocity = velocity;
+    }
+
+
+    private void CheckForPlayer()
+    {
+        Collider[] detectedPlayer = Physics.OverlapSphere(transform.position, detectionRadius, playerMask);
+
+        foreach (Collider playerCollider in detectedPlayer)
+        {
+            playerCollider.GetComponent<PlayerMovement>().TakeDamage();
+        }
     }
 }
