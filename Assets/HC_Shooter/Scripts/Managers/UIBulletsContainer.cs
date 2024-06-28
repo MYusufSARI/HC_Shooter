@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UIBulletsContainer : MonoBehaviour
 {
+    public static UIBulletsContainer instance;
+
     [Header(" Elements ")]
     [SerializeField] private Transform bulletsParent;
 
@@ -19,13 +21,34 @@ public class UIBulletsContainer : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         PlayerShooter.onShot += OnShotCallback;
+
+        PlayerMovement.onEnteredWarzone += EnteredWarzoneCallback;
+        PlayerMovement.onExitedWarzone += ExitedWarzoneCallback;
+    }
+
+
+    private void Start()
+    {
+        bulletsParent.gameObject.SetActive(false);
     }
 
 
     private void OnDestroy()
     {
         PlayerShooter.onShot -= OnShotCallback;
+
+        PlayerMovement.onEnteredWarzone -= EnteredWarzoneCallback;
+        PlayerMovement.onExitedWarzone -= ExitedWarzoneCallback;
     }
 
 
@@ -33,11 +56,37 @@ public class UIBulletsContainer : MonoBehaviour
     {
         bulletsShot++;
 
-        if (bulletsShot > bulletsParent.childCount)
-        {
-            bulletsShot = bulletsParent.childCount;
-        }
+        bulletsShot = Mathf.Min(bulletsShot, bulletsParent.childCount);
 
         bulletsParent.GetChild(bulletsShot - 1).GetComponent<Image>().color = inactiveColor;
+    }
+
+
+    private void EnteredWarzoneCallback()
+    {
+        bulletsParent.gameObject.SetActive(true);
+    }
+
+
+    private void ExitedWarzoneCallback()
+    {
+        bulletsParent.gameObject.SetActive(false);
+    }
+
+
+    private void Reload()
+    {
+        bulletsShot = 0;
+
+        for (int i = 0; i < bulletsParent.childCount; i++)
+        {
+            bulletsParent.GetChild(i).GetComponent<Image>().color = activeColor;
+        }
+    }
+
+
+    public bool CanShoot()
+    {
+        return bulletsShot < bulletsParent.childCount;
     }
 }
