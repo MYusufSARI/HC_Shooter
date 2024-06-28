@@ -69,6 +69,8 @@ public class PlayerShooter : MonoBehaviour
         Bullet bulletInstance = Instantiate(bulletPrefab, bulletSpawnPosition.position, Quaternion.identity, bulletsParent);
 
         bulletInstance.Configure(direction * bulletSpeed);
+
+        onShot?.Invoke();
     }
 
 

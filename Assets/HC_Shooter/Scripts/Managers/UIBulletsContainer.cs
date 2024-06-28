@@ -1,18 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBulletsContainer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header(" Elements ")]
+    [SerializeField] private Transform bulletsParent;
+
+
+    [Header(" Settings ")]
+    [SerializeField] private Color activeColor;
+    [SerializeField] private Color inactiveColor;
+    private int bulletsShot;
+
+
+
+    private void Awake()
     {
-        
+        PlayerShooter.onShot += OnShotCallback;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnDestroy()
     {
-        
+        PlayerShooter.onShot -= OnShotCallback;
+    }
+
+
+    private void OnShotCallback()
+    {
+        bulletsShot++;
+
+        if (bulletsShot > bulletsParent.childCount)
+        {
+            bulletsShot = bulletsParent.childCount;
+        }
+
+        bulletsParent.GetChild(bulletsShot - 1).GetComponent<Image>().color = inactiveColor;
     }
 }
