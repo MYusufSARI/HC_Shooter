@@ -17,6 +17,8 @@ public class PlayerShooter : MonoBehaviour
     private bool canShoot;
 
 
+    [Header(" Actions ")]
+    public static Action onShot;
 
 
     private void Awake()
