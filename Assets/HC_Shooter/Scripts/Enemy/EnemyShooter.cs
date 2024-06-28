@@ -27,7 +27,7 @@ public class EnemyShooter : MonoBehaviour
 
         hasShot = true;
 
-        Invoke("Shoot", 0.5f);
+        Invoke("Shoot", 0.1f);
     }
 
 

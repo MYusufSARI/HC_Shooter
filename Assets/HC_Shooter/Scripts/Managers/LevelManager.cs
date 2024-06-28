@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header(" Elements ")]
+    [SerializeField] private GameObject[] levels;
+
+
+
+    private void Start()
     {
+        GameObject levelInstance = Instantiate(levels[0], transform);
         
+        StartCoroutine(EnableLevelCoroutine());
+
+        IEnumerator EnableLevelCoroutine()
+        {
+            yield return new WaitForSeconds(Time.deltaTime);
+            levelInstance.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
