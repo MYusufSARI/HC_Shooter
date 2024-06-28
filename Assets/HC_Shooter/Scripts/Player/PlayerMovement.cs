@@ -172,5 +172,7 @@ public class PlayerMovement : MonoBehaviour
         Time.fixedDeltaTime = 1f / initialValueOfFixedTimeScale;
 
         onDied?.Invoke();
+
+        
     }
 }
