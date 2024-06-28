@@ -58,7 +58,8 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
-
+                gamePanel.SetActive(false);
+                gameOverPanel.SetActive(true);
                 break;
 
         }
@@ -68,7 +69,11 @@ public class UIManager : MonoBehaviour
     public void PlayButtonCallback()
     {
         GameManager.instance.SetGameState(GameState.Game);
+    }
 
 
+    public void RetryButtonCallback()
+    {
+        GameManager.instance.Retry();
     }
 }

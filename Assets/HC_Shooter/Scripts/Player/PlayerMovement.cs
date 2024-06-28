@@ -42,6 +42,18 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+    private void Awake()
+    {
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+
+    }
+
 
     private void Start()
     {
@@ -53,12 +65,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartRunning();
-        }
-
         ManageState();
+    }
+
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Game:
+                StartRunning();
+                break;
+        }
     }
 
 
@@ -118,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
         onEnteredWarzone?.Invoke();
 
         Debug.Log("Entered Warzone !");
+
+
     }
 
 
@@ -151,14 +171,14 @@ public class PlayerMovement : MonoBehaviour
 
 
         onExitedWarzone?.Invoke();
-        
+
     }
 
 
     public Transform GetEnemyTarget()
     {
         return enemyTarget;
-    } 
+    }
 
 
     public void TakeDamage()
@@ -173,6 +193,6 @@ public class PlayerMovement : MonoBehaviour
 
         onDied?.Invoke();
 
-        
+        GameManager.instance.SetGameState(GameState.GameOver);
     }
 }

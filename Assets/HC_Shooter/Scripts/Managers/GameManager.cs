@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { Menu, Game, LevelComplete, GameOver }
 
@@ -40,5 +41,11 @@ public class GameManager : MonoBehaviour
     {
         this.gameState = gameState;
         onGameStateChanged?.Invoke(gameState);
+    }
+
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(0);
     }
 }
