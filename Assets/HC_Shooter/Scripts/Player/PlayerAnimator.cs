@@ -8,6 +8,8 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private const string RUN = "Run";
+    private const string IDLE = "Idle";
+
 
 
 
@@ -15,6 +17,12 @@ public class PlayerAnimator : MonoBehaviour
     public void PlayRunAnimator()
     {
         Play(RUN);
+    }
+
+
+    public void PlayIdleAnimation()
+    {
+        Play(IDLE);
     }
 
 

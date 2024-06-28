@@ -65,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        ManageState();
+        if (GameManager.instance.IsGameState())
+        {
+            ManageState();
+        }
     }
 
 
@@ -194,5 +197,14 @@ public class PlayerMovement : MonoBehaviour
         onDied?.Invoke();
 
         GameManager.instance.SetGameState(GameState.GameOver);
+    }
+
+
+    public void HitFinishLine()
+    {
+        state = State.Idle;
+        playerAnimator.PlayIdleAnimation();
+
+        GameManager.instance.SetGameState(GameState.LevelComplete);
     }
 }

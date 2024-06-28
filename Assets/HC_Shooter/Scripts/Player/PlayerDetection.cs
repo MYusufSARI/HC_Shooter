@@ -21,7 +21,10 @@ public class PlayerDetection : MonoBehaviour
 
     private void Update()
     {
-        DetectStuff();
+        if (GameManager.instance.IsGameState())
+        {
+            DetectStuff();
+        }
     }
 
 
@@ -35,6 +38,11 @@ public class PlayerDetection : MonoBehaviour
             {
                 EnteredWarzoneCallback(collider);
             }
+
+            else if (collider.CompareTag("Finish"))
+            {
+                HitFinishLine();
+            }
         }
     }
 
@@ -43,6 +51,13 @@ public class PlayerDetection : MonoBehaviour
     {
         Warzone warzone = warzoneTriggerCollider.GetComponentInParent<Warzone>();
         playerMovement.EnteredWarzoneCallback(warzone);
+    }
+
+
+    private void HitFinishLine()
+    {
+        Debug.Log("Hit finish line");
+        playerMovement.HitFinishLine();
     }
 
 

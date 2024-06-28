@@ -3729,13 +3729,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1140799982}
+  - component: {fileID: 1140799988}
   - component: {fileID: 1140799981}
   - component: {fileID: 1140799983}
   - component: {fileID: 1140799984}
   - component: {fileID: 1140799985}
   - component: {fileID: 1140799986}
   - component: {fileID: 1140799987}
-  - component: {fileID: 1140799988}
   - component: {fileID: 1140799989}
   m_Layer: 7
   m_Name: Player
@@ -3906,7 +3906,7 @@ MonoBehaviour:
   - {fileID: 4112777726259174585}
   - {fileID: 2322617736715839207}
   - {fileID: 6964871422823366359}
-  ragdollForce: 50
+  ragdollForce: 500
 --- !u!1 &1140991682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +6902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1967233363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2001703642}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: NextButtonCallback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1967233363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7098,7 +7110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2038044030
 Transform:
   m_ObjectHideFlags: 0

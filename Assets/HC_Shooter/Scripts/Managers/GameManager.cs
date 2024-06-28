@@ -44,8 +44,20 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public bool IsGameState()
+    {
+        return gameState == GameState.Game;
+    }
+
+
     public void Retry()
     {
+        SceneManager.LoadScene(0);
+    }
+
+    public void NextLevel()
+    {
+        // Tell the level manager to increase the level index!
         SceneManager.LoadScene(0);
     }
 }

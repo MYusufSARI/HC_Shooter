@@ -54,7 +54,8 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameState.LevelComplete:
-
+                gamePanel.SetActive(false);
+                levelCompletePanel.SetActive(true);
                 break;
 
             case GameState.GameOver:
@@ -75,5 +76,11 @@ public class UIManager : MonoBehaviour
     public void RetryButtonCallback()
     {
         GameManager.instance.Retry();
+    }
+
+
+    public void NextButtonCallback()
+    {
+        GameManager.instance.NextLevel();
     }
 }
