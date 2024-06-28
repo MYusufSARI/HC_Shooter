@@ -6,13 +6,55 @@ public class LevelManager : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private GameObject[] levels;
+    private int levelIndex;
 
+    private const string LEVEL = "Level";
+
+
+
+    private void Awake()
+    {
+        LoadData();
+
+        SpawnLevel();
+
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
 
 
     private void Start()
     {
-        GameObject levelInstance = Instantiate(levels[0], transform);
         
+    }
+
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.LevelComplete:
+                levelIndex++;
+                SaveData();
+                break;
+        }
+    }
+
+
+    private void SpawnLevel()
+    {
+        if (levelIndex >= levels.Length)
+        {
+            levelIndex = 0;
+        }
+
+        GameObject levelInstance = Instantiate(levels[levelIndex], transform);
+
         StartCoroutine(EnableLevelCoroutine());
 
         IEnumerator EnableLevelCoroutine()
@@ -21,5 +63,18 @@ public class LevelManager : MonoBehaviour
             levelInstance.SetActive(true);
         }
     }
+
+
+    private void LoadData()
+    {
+        levelIndex = PlayerPrefs.GetInt(LEVEL);
+    }
+
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(LEVEL, levelIndex);
+    }
+
 
 }
