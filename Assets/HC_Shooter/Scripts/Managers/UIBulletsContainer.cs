@@ -71,6 +71,8 @@ public class UIBulletsContainer : MonoBehaviour
     private void ExitedWarzoneCallback()
     {
         bulletsParent.gameObject.SetActive(false);
+
+        Reload();
     }
 
 

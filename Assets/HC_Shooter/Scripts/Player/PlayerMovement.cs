@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     {
         warzoneTimer += Time.deltaTime;
 
-        float splinePercent = warzoneTimer / currentWarzone.GetDuration();
+        float splinePercent = Mathf.Clamp01(warzoneTimer / currentWarzone.GetDuration());
         transform.position = currentWarzone.GetPlayerSpline().EvaluatePosition(splinePercent);
 
         if (splinePercent >= 1)

@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
+using Dreamteck.Splines;
 
 public class Warzone : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField] private SplineContainer playerSpline;
     [SerializeField] private Transform ikTarget;
-    [SerializeField] private SplineAnimate ikSplineAnimate;
+    [SerializeField] private SplineComputer newPlayerSpline;
+    [SerializeField] private SplineFollower ikSplineFollower;
 
 
     [Header(" Settings ")]
@@ -20,18 +21,19 @@ public class Warzone : MonoBehaviour
 
     private void Start()
     {
-        ikSplineAnimate.Duration = duration;
+        ikSplineFollower.followDuration = duration;
     }
 
 
     public void StartAnimatingIKTarget()
     {
-        ikSplineAnimate.Play();
+        ikSplineFollower.follow = true;
     }
 
-    public Spline GetPlayerSpline()
+
+    public SplineComputer GetPlayerSpline()
     {
-        return playerSpline.Spline;
+        return newPlayerSpline;
     }
 
 

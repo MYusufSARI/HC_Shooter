@@ -47,11 +47,18 @@ public class Enemy : MonoBehaviour
         characterRagdoll.Ragdollify();
     }
 
+
     public void ShootAtPlayer()
     {
         if (state == State.Dead)
             return;
 
         enemyShooter.TryShooing();
+    }
+
+
+    public bool isDead()
+    {
+        return state == State.Dead;
     }
 }
