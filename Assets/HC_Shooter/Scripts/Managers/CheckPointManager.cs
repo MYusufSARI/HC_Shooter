@@ -23,17 +23,38 @@ public class CheckPointManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         CheckPoint.onInteracted += CheckPointInteractedCallback;
+
+        GameManager.onGameStateChanged += GameStateChangedCallback;
     }
 
 
     private void OnDestroy()
     {
         CheckPoint.onInteracted -= CheckPointInteractedCallback;
+
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
+
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.LevelComplete:
+                lastCheckPointPosition = Vector3.zero;
+                break;
+        }
     }
 
 
     private void CheckPointInteractedCallback(CheckPoint checkPoint)
     {
         lastCheckPointPosition = checkPoint.GetPosition();
+    }
+
+
+    public Vector3 GetCheckPointPosition()
+    {
+        return lastCheckPointPosition;
     }
 }
