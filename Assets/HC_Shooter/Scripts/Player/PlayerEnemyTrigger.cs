@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof (PlayerMovement))]
 public class PlayerEnemyTrigger : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private LineRenderer shootingLine;
+
+    private PlayerMovement playerMovement;
 
 
     [Header(" Settings ")]
@@ -90,6 +93,7 @@ public class PlayerEnemyTrigger : MonoBehaviour
 
             if (!enemyFound)
             {
+                if(enemy.transform.parent == )
                 enemy.ShootAtPlayer();
                 enemiesToRemove.Add(enemy);
             }

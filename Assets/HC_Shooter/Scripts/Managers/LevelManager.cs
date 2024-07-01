@@ -21,8 +21,8 @@ public class LevelManager : MonoBehaviour
     {
         LoadData();
 
-        if(!preventSpawning)
-        SpawnLevel();
+        if (!preventSpawning)
+            SpawnLevel();
 
         GameManager.onGameStateChanged += GameStateChangedCallback;
     }
@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
 
