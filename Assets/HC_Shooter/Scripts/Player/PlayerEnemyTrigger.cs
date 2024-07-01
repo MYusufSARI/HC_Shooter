@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (PlayerMovement))]
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerEnemyTrigger : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private LineRenderer shootingLine;
+
 
     private PlayerMovement playerMovement;
 
@@ -20,6 +21,8 @@ public class PlayerEnemyTrigger : MonoBehaviour
 
     private void Awake()
     {
+        playerMovement = GetComponent<PlayerMovement>();
+
         PlayerMovement.onEnteredWarzone += EnteredWarzoneCallback;
         PlayerMovement.onExitedWarzone += ExitedWarzoneCallback;
     }
@@ -93,15 +96,18 @@ public class PlayerEnemyTrigger : MonoBehaviour
 
             if (!enemyFound)
             {
-                if(enemy.transform.parent == )
-                enemy.ShootAtPlayer();
+                if (enemy.transform.parent == playerMovement.GetCurrentWarzone().transform)
+                {
+                    enemy.ShootAtPlayer();
+                }
+
                 enemiesToRemove.Add(enemy);
             }
 
         }
 
         // Remove processed enemies from the current enemies list !
-        foreach(Enemy enemy in enemiesToRemove)
+        foreach (Enemy enemy in enemiesToRemove)
         {
             currentEnemies.Remove(enemy);
         }

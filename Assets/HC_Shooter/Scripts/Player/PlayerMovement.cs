@@ -210,4 +210,10 @@ public class PlayerMovement : MonoBehaviour
 
         GameManager.instance.SetGameState(GameState.LevelComplete);
     }
+
+
+    public Warzone GetCurrentWarzone()
+    {
+        return currentWarzone;
+    }
 }
