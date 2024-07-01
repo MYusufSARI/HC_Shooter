@@ -18,6 +18,10 @@ public class Warzone : MonoBehaviour
     [SerializeField] private string animationToPlay;
 
 
+    [Header(" Next Warzone ")]
+    [SerializeField] private Warzone nextWarzone;
+
+
 
     private void Start()
     {
@@ -50,5 +54,11 @@ public class Warzone : MonoBehaviour
     public Transform GetIKTarget()
     {
         return ikTarget;
+    }
+
+
+    public Warzone GetNextWarzone()
+    {
+        return nextWarzone;
     }
 }

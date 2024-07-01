@@ -156,7 +156,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (splinePercent >= 1)
         {
+            TryExitWarzone();
+        }
+    }
+
+
+    private void TryExitWarzone()
+    {
+        Warzone nextWarzone = currentWarzone.GetNextWarzone();
+
+        if(nextWarzone == null)
+        {
             ExitWarzone();
+        }
+
+        else
+        {
+            currentWarzone = null;
+            EnteredWarzoneCallback(nextWarzone);
         }
     }
 
