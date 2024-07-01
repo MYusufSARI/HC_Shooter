@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     {
         LoadData();
 
+        if(!preventSpawning)
         SpawnLevel();
 
         GameManager.onGameStateChanged += GameStateChangedCallback;
