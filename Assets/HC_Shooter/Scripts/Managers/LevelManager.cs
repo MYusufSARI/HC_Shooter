@@ -8,7 +8,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] levels;
     private int levelIndex;
 
+    [Header(" Debug ")]
+    [SerializeField] private bool preventSpawning;
+
+
     private const string LEVEL = "Level";
+
 
 
 
